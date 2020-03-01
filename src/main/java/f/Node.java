@@ -1,16 +1,15 @@
 package f;
 
-import java.util.Objects;
 import java.util.stream.Stream;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
+@AllArgsConstructor
 public class Node implements INode {
     String code;
     String renderer;
-
-    public Node(String code, String renderer) {
-        this.code = code;
-        this.renderer = renderer;
-    }
 
     @Override
     public String toString() {
@@ -28,25 +27,7 @@ public class Node implements INode {
     }
 
     @Override
-    public Stream<INode> toStream() {
+    public Stream<INode> stream() {
         return Stream.of(this);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Node node = (Node) o;
-        return Objects.equals(code, node.code) &&
-                Objects.equals(renderer, node.renderer);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(code, renderer);
     }
 }

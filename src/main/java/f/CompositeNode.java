@@ -2,6 +2,7 @@ package f;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CompositeNode extends Node implements ICompositeNode {
@@ -23,14 +24,16 @@ public class CompositeNode extends Node implements ICompositeNode {
     
     @Override
     public List<INode> getNodes() {
-        return nodes;
+        return nodes.stream()
+                    .flatMap(INode::stream)
+                    .collect(Collectors.toList());
     }
 
     @Override
-    public Stream<INode> toStream() {
-        return Stream.concat(
-                super.toStream(),
-                nodes.stream().flatMap(INode::toStream)
+    public Stream<INode> stream() {
+        return Stream.concat(super.stream(),
+                               nodes.stream()
+                                    .flatMap(INode::stream)
         );
     }
    

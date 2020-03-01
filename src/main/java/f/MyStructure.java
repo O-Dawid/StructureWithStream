@@ -5,8 +5,11 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import lombok.Getter;
+
 public class MyStructure implements IMyStructure {
     private List<INode> nodes;
+    @Getter
     private String name;
     
     public MyStructure(String name) {
@@ -33,12 +36,17 @@ public class MyStructure implements IMyStructure {
     @Override
     public int count() {
         return Math.toIntExact(nodes.stream()
-                                    .flatMap(INode::toStream)
+                                    .flatMap(INode::stream)
                                     .count()
         );
     }
 
 	public void add(Node node) {
+        if(node instanceof CompositeNode){
+            INode iNode = findByPredicate(n->((CompositeNode)node).getNodes().contains(n));
+            if (iNode!=null)
+                throw new IllegalArgumentException(node+" exists in "+ this+ "\n");
+        }
         INode iNode = findByPredicate(n->node.equals(n));
         if (iNode!=null)
             throw new IllegalArgumentException(node+" exists in "+ this+ "\n");
@@ -51,30 +59,21 @@ public class MyStructure implements IMyStructure {
 
     public List<INode> getNodes() {
         return nodes.stream()
-                    .flatMap(INode::toStream)
+                    .flatMap(INode::stream)
                     .collect(Collectors.toList());
     }
-
+    
     private INode findByPredicate(Predicate<INode> predicate) {
         return nodes.stream()
-                .flatMap(INode::toStream)
+                .flatMap(INode::stream)
                 .filter(predicate)
                 .findFirst()
                 .orElse(null);
     }
 
     @Override
-    public String toString() {
-        
+    public String toString() {      
         return getClass().getSimpleName()+ " (" +"Name: "+name +")";
     }
-
-
-
-
-
-
-    
-
   }
   

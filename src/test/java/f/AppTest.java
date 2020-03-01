@@ -104,6 +104,50 @@ public class AppTest
         assertEquals(compositeNode, myStructure.findByRenderer("CompositeNode1"));
     }
 
+
+    @Test
+    public void shouldAddCompositeNodeToCompositeNodeInMyStructure()
+    {
+        //given
+        MyStructure myStructure = new MyStructure("MyStructure");
+        CompositeNode compositeNode = new CompositeNode("1", "CompositeNode1");
+        Node node1 = new Node("2", "Node1");
+        Node node2 = new Node("3", "Node2");
+        Node node3 = new Node("4", "Node3");
+        CompositeNode compositeNode2 = new CompositeNode("5", "CompositeNode2");
+        //when
+        compositeNode.add(node1);
+        compositeNode.add(node2);
+        compositeNode2.add(compositeNode);
+        myStructure.add(node3);
+        myStructure.add(compositeNode2);
+        
+        //then
+        assertEquals(5, myStructure.count());
+        assertEquals(3, compositeNode2.getNodes().size());
+    }
+
+    @Test(expected = IllegalArgumentException.class) 
+    public void shouldThrowNestedNodeExistExceptionInMyStructure()
+    {
+        //given
+        MyStructure myStructure = new MyStructure("MyStructure");
+        CompositeNode compositeNode = new CompositeNode("1", "CompositeNode1");
+        Node node1 = new Node("2", "Node1");
+        Node node2 = new Node("3", "Node2");
+        Node node3 = new Node("4", "Node3");
+        CompositeNode compositeNode2 = new CompositeNode("5", "CompositeNode2");
+        //when
+        compositeNode.add(node1);
+        compositeNode.add(node2);
+        compositeNode2.add(compositeNode);
+        myStructure.add(node3);
+        myStructure.add(compositeNode2);
+        myStructure.add(compositeNode);
+    }
+
+
+
     @Test
     public void shouldntfindNodeByRenderer()
     {
