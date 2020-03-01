@@ -16,3 +16,5 @@ W ramach zadania przygotowano 12 testów jednostkowych sprawdzających m.in.:
 - szukanie węzłów po kodzie
 - szukanie węzłów po rendererze
 - wychwytywanie wyjątków
+- dodawanie węzłów
+- dodawanie compositenode
