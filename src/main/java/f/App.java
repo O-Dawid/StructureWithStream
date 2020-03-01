@@ -1,8 +1,5 @@
 package f;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class App 
 {
     public static void main( String[] args )
@@ -12,7 +9,6 @@ public class App
         Node node1 = new Node("1", "Pracownik 1");
         Node node2 = new Node("2", "Pracownik 2");
         Node node3 = new Node("3", "Pracownik 3");
-        Node node4 = new Node("4", "Pracownik 4");
 
         CompositeNode manager1 = new CompositeNode("5", "Manager 1");
         CompositeNode manager2 = new CompositeNode("6", "Manager 2");
