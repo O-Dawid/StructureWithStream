@@ -1,7 +1,9 @@
 # StructureWithStream
 Nested Structures using Stream
 --------
-Przykład dotyczy struktur danych typy: Composite Structure Data;<br />
+Przykład dotyczy struktur danych typu: Composite Structure Data;<br />
+![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Composite_UML_class_diagram_%28fixed%29.svg/330px-Composite_UML_class_diagram_%28fixed%29.svg.png)
+
 Zagadnienia jakie wykorzystano do rozwiązania zadania to między innymi:
 
 - Wyrażenia Lambda
