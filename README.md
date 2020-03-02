@@ -3,7 +3,7 @@ Nested Structures using Stream
 --------
 Przykład dotyczy struktur danych typu: Composite Structure Data;<br />
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Composite_UML_class_diagram_%28fixed%29.svg/330px-Composite_UML_class_diagram_%28fixed%29.svg.png)
-
+![alt text](https://upload.wikimedia.org/wikipedia/commons/6/65/W3sDesign_Composite_Design_Pattern_UML.jpg)
 Composite Structure Data zaprezentowano na przykładzie
 struktury w firmie.
 Każda struktura składa się z pracowników (Node) lub ich 
