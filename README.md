@@ -4,6 +4,13 @@ Nested Structures using Stream
 Przykład dotyczy struktur danych typu: Composite Structure Data;<br />
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Composite_UML_class_diagram_%28fixed%29.svg/330px-Composite_UML_class_diagram_%28fixed%29.svg.png)
 
+Composite Structure Data zaprezentowano na przykładzie
+struktury w firmie.
+Każda struktura składa się z pracowników (Node) lub ich 
+przełożonych (Composite Node). Do struktury można dodawać pojedynczych 
+managerów lub pracowników, jak również całe podstruktury, 
+tzn. Managera(Composite Node) z pracownikami (Node).
+
 Zagadnienia jakie wykorzystano do rozwiązania zadania to między innymi:
 
 - Wyrażenia Lambda
