@@ -9,7 +9,14 @@ struktury w firmie.
 Każda struktura składa się z pracowników (Node) lub ich 
 przełożonych (Composite Node). Do struktury można dodawać pojedynczych 
 managerów lub pracowników, jak również całe podstruktury, 
-tzn. Managera(Composite Node) z pracownikami (Node).
+tzn. Managera(Composite Node) z pracownikami (Node).</br>
+Pierwotnie klient powinien mieć dostęp do klas za 
+pomocą metod interfejsów które te klasy implementują.
+Tu funkcjonalność jest trochę roszerzona, np. w klasie
+MyStructure możemy wylistowac jej wszystkie elementy.
+
+
+
 
 Zagadnienia jakie wykorzystano do rozwiązania zadania to między innymi:
 
