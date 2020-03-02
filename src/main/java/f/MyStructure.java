@@ -43,12 +43,14 @@ public class MyStructure implements IMyStructure {
 
 	public void add(Node node) {
         if(node instanceof CompositeNode){
-            INode iNode = findByPredicate(n->((CompositeNode)node).getNodes().contains(n));
-            if (iNode!=null)
-                throw new IllegalArgumentException(node+" exists in "+ this+ "\n");
+            Boolean isExist = existsInNodes(n->((CompositeNode)node).getNodes().contains(n));
+            if (isExist){
+                INode iNode = findByPredicate(n->((CompositeNode)node).getNodes().contains(n));
+                throw new IllegalArgumentException(iNode+ " is a part of "+node+" and exists in "+ this+ "\n");
+            }
         }
-        INode iNode = findByPredicate(n->node.equals(n));
-        if (iNode!=null)
+        Boolean isExist = existsInNodes(n->node.equals(n));
+        if (isExist)
             throw new IllegalArgumentException(node+" exists in "+ this+ "\n");
         nodes.add(node);
     }
@@ -69,6 +71,11 @@ public class MyStructure implements IMyStructure {
                 .filter(predicate)
                 .findFirst()
                 .orElse(null);
+    }
+
+    private Boolean existsInNodes(Predicate<INode> predicate) {
+        return getNodes().stream()
+                         .anyMatch(predicate);
     }
 
     @Override

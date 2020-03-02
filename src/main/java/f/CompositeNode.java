@@ -14,7 +14,7 @@ public class CompositeNode extends Node implements ICompositeNode {
     }
     
     public void add(Node node){
-        if(nodes.contains(node))
+        if(getNodes().contains(node))
             throw new IllegalArgumentException(node+" exists in "+ this+ "\n");
         nodes.add(node);   
     }
